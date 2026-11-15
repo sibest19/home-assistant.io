@@ -10,6 +10,18 @@ The **AI Task** {% term integration %} allows you to use AI to help you configur
 
 For each task, you can set a preferred AI task entity. This allows you to use different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
 
+## Evaluating questions with AI
+
+The [Evaluate](/actions/ai_task.evaluate/) action answers questions about text, JSON data, or attachments. It supports yes/no probabilities, choices between alternatives, and scores across ordered levels. Configure an AI task entity that supports evaluation before using this action. Data and image generation entities do not necessarily support evaluation.
+
+### Choosing a preferred evaluation entity
+
+1. Go to **Settings** > **System** > **AI**.
+2. Under **AI suggestions**, select an entity in **Decisions**.
+3. Select **Save**.
+
+The selected entity is used when you omit `entity_id` from `ai_task.evaluate`. This preference is separate from the entities used for data and image generation. If you have not selected a preferred evaluation entity, specify `entity_id` in each evaluation action.
+
 ## AI task states
 
 The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
