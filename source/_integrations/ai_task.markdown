@@ -20,7 +20,7 @@ The [Evaluate](/actions/ai_task.evaluate/) action answers questions about text, 
 2. Under **AI suggestions**, select an entity in **Decisions**.
 3. Select **Save**.
 
-The selected entity is used when you omit `entity_id` from `ai_task.evaluate`. This preference is separate from the entities used for data and image generation. If you have not selected a preferred evaluation entity, specify `entity_id` in each evaluation action.
+When you leave **Entity ID** empty in the **Evaluate** action, Home Assistant uses this entity. This preference is separate from the entities used for data and image generation. If you have not selected a preferred evaluation entity, select an **Entity ID** in each evaluation action.
 
 ## AI task states
 
