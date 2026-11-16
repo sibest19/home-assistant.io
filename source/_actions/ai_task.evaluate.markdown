@@ -22,9 +22,17 @@ To evaluate questions from an automation or a script:
 4. Search for and select **Evaluate**.
 5. Enter a **Task name** and select an **Entity ID** that supports evaluation, unless you have set a preferred evaluation entity.
 6. Enter the **State** to evaluate, select **Attachments**, or supply both.
-7. In **Questions**, enter one or more named questions using the [question format](#question-format).
+7. In **Questions**, enter one or more named questions. For a yes/no question, use the example below. See [Question format](#question-format) for other question types.
 8. In **Response variable**, enter a name to store the answers, such as `evaluation`.
 9. Select **Save**.
+
+For example, enter the following in **Questions** to ask whether a package has arrived:
+
+```yaml
+delivered:
+  type: noul
+  instructions: "Has the package arrived?"
+```
 
 ### Options in the UI
 
@@ -99,7 +107,7 @@ The response contains an `answers` mapping with exactly one entry for each quest
 
 All probabilities are between 0 and 1. For choice and score answers, the probabilities sum to 1, allowing for small numerical rounding differences. Home Assistant rejects responses that do not match this format.
 
-For example, a score answer for two levels can look like this:
+For example, with the levels "No immediate action needed" and "Collect it now", the following answer assigns a probability of 0.8 to the first level and 0.2 to the second. The score is 0.2: `0 × 0.8 + 1 × 0.2`.
 
 {% example %}
 output: |
@@ -134,7 +142,7 @@ When a sensor containing a delivery message changes, evaluate that message with 
 - **Action**: Evaluate
   - **Task name**: Delivery assessment
   - **Entity ID**: Your evaluation entity
-  - **State**: The state of your delivery status sensor
+  - **State**: Enter {% raw %}`{{ states('sensor.delivery_status') }}`{% endraw %} to supply the sensor's current value. Replace `sensor.delivery_status` with your sensor's entity ID.
   - **Questions**: The questions shown below
   - **Response variable**: `evaluation`
 
