@@ -37,11 +37,13 @@ Reasoning:
 
 ## Configuring an evaluation task
 
+Before selecting a model, check its supported input types on [OpenRouter](https://openrouter.ai/models). To evaluate images or PDF files, choose a model that supports those inputs.
+
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **OpenRouter**.
 2. Select **Add AI task evaluation**.
 3. Select a **Model** and submit the form. The list only includes models that support the OpenRouter Decisions API.
 
-This creates an AI task entity for evaluation, separate from entities that generate data or images. Select a model that supports the types of input you want to evaluate.
+This creates an AI task entity for evaluation, separate from entities that generate data or images.
 
 ## Supported functionality
 
